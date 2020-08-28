@@ -1,1 +1,23 @@
-<p>dashboard works!</p>
+<div class="dashboard">
+  <button
+    class="dashboard__add-button"
+    mat-fab>
+    <mat-icon>add</mat-icon>
+  </button>
+  <div class="dashboard__col">
+    <app-calendar></app-calendar>
+  </div>
+  <div class="dashboard__col">
+    <form class="example-form">
+      <mat-form-field class="example-full-width">
+        <mat-label>Change to autocomplete</mat-label>
+        <input matInput>
+      </mat-form-field>
+    </form>
+    <mat-list role="list">
+      <mat-list-item role="listitem">Item 1</mat-list-item>
+      <mat-list-item role="listitem">Item 2</mat-list-item>
+      <mat-list-item role="listitem">Item 3</mat-list-item>
+    </mat-list>
+  </div>
+</div>
