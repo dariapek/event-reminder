@@ -1,0 +1,115 @@
+.calendar {
+  box-shadow: 0 2px 4px -1px rgba(0,0,0,.2), 0 4px 5px 0 rgba(0,0,0,.14), 0 1px 10px 0 rgba(0,0,0,.12);
+  background-color: #fff;
+  color: rgba(0,0,0,.87);
+
+  &__header {
+    display: flex;
+    align-items: center;
+  }
+
+  &__date-wrap {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__current-month {
+    font-weight: 300;
+    font-size: 18px;
+    line-height: 1.5;
+  }
+
+  &__current-day {
+    width: 100%;
+    font-weight: 300;
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  &__arrow {
+    display: flex;
+    align-items: center;
+    padding: 8px;
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+  }
+
+  &__weeks {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 8px;
+    padding-bottom: 8px;
+
+    &:after {
+      content: "";
+      position: absolute;
+      bottom: 0;
+      left: -16px;
+      right: -16px;
+      height: 1px;
+      background: rgba(0,0,0,.12);
+    }
+  }
+
+  &__week {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 20px;
+    user-select: none;
+  }
+
+  &__days {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__day {
+    width: 54px;
+    height: 54px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    background-color: transparent;
+    border: none;
+
+    &:hover:after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      border-radius: 50%;
+      background-color: #99999926;
+      cursor: pointer;
+    }
+  }
+
+  &__day--today {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      border-radius: 50%;
+      border: 1px solid #999;
+    }
+  }
+
+  &__day--prev,
+  &__day--next{
+    opacity: 0.4;
+  }
+}

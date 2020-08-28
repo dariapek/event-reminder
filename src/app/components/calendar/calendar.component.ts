@@ -1,0 +1,81 @@
+import { Component, OnInit } from '@angular/core';
+import * as _ from 'lodash';
+
+@Component({
+  selector: 'app-calendar',
+  templateUrl: './calendar.component.html',
+  styleUrls: ['./calendar.component.scss']
+})
+export class CalendarComponent implements OnInit {
+  private date = new Date();
+
+  public currentDay = new Date().getDate();
+  public currentDate = new Date();
+  public currentMonth = new Date().getMonth();
+  public monthName: string;
+  public month: number;
+  public year: number;
+  public daysOfMonth: any = [];
+  public daysOfPrevMonth: any = [];
+  public daysOfNextMonth: any = [];
+
+  constructor() {
+  }
+
+  ngOnInit(): void {
+    this.renderCalendar();
+  }
+
+  renderCalendar() {
+    this.date.setDate(1);
+    this.month = this.date.getMonth();
+    this.monthName = {
+      0: 'January',
+      1: 'February',
+      2: 'March',
+      3: 'April',
+      4: 'May',
+      5: 'June',
+      6: 'July',
+      7: 'August',
+      8: 'September',
+      9: 'October',
+      10: 'November',
+      11: 'December',
+    }[this.month];
+    this.year = this.date.getFullYear();
+
+    const lastDay = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDate();
+    const lastDayPrevMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
+    const firstDayIndex = this.date.getDay();
+    const lastDayIndex = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDay();
+    const countDayOfWeek = 7;
+
+    this.daysOfMonth = [];
+    this.daysOfNextMonth = [];
+    this.daysOfPrevMonth = [];
+
+    _.times(firstDayIndex - 1, (index) => {
+      this.daysOfPrevMonth.push(lastDayPrevMonth - index);
+    });
+    this.daysOfPrevMonth.reverse();
+
+    _.times(lastDay, (day) => {
+      this.daysOfMonth.push(day);
+    });
+
+    _.times(countDayOfWeek - lastDayIndex, (day) => {
+      this.daysOfNextMonth.push(day);
+    });
+  }
+
+  changeToPrevMonth() {
+    this.date.setMonth(this.date.getMonth() - 1);
+    this.renderCalendar();
+  }
+
+  changeToNextMonth() {
+    this.date.setMonth(this.date.getMonth() + 1);
+    this.renderCalendar();
+  }
+}
