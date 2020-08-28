@@ -1,0 +1,12 @@
+.layout{
+  &__header {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  &__main-container {
+    max-width: 868px;
+    margin: 40px auto 0 auto;
+    padding: 24px;
+  }
+}
