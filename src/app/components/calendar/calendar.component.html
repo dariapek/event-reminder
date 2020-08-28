@@ -32,9 +32,10 @@
       >{{day}}</button>
       <button
         class="calendar__day"
-        *ngFor="let day of daysOfMonth"
-        [ngClass]="(currentDay === day + 1) && (currentMonth === month) ? 'calendar__day--today' : ''"
-      >{{day + 1}}</button>
+        *ngFor="let date of daysOfMonth"
+        [ngClass]="(currentDay === date.day) && (currentMonth === month) ? 'calendar__day--today' : ''"
+        (click)="onDateClick(date.fullDate)"
+      >{{date.day}}</button>
       <button
         class="calendar__day calendar__day--next"
         *ngFor="let day of daysOfNextMonth"

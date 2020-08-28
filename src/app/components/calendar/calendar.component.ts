@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 
 @Component({
@@ -49,7 +49,7 @@ export class CalendarComponent implements OnInit {
     const lastDayPrevMonth = new Date(this.date.getFullYear(), this.date.getMonth(), 0).getDate();
     const firstDayIndex = this.date.getDay();
     const lastDayIndex = new Date(this.date.getFullYear(), this.date.getMonth() + 1, 0).getDay();
-    const countDayOfWeek = 7;
+    const DAYS_OF_WEEK = 7;
 
     this.daysOfMonth = [];
     this.daysOfNextMonth = [];
@@ -61,10 +61,12 @@ export class CalendarComponent implements OnInit {
     this.daysOfPrevMonth.reverse();
 
     _.times(lastDay, (day) => {
-      this.daysOfMonth.push(day);
+      this.daysOfMonth.push({day: day + 1, fullDate: new Date(this.date.getFullYear(), this.date.getMonth(), day + 1)});
     });
 
-    _.times(countDayOfWeek - lastDayIndex, (day) => {
+
+    // TODO: поправить вывод, при некоторых значениях встречаются баги
+    _.times(DAYS_OF_WEEK - lastDayIndex, (day) => {
       this.daysOfNextMonth.push(day);
     });
   }
@@ -77,5 +79,9 @@ export class CalendarComponent implements OnInit {
   changeToNextMonth() {
     this.date.setMonth(this.date.getMonth() + 1);
     this.renderCalendar();
+  }
+
+  onDateClick(date) {
+
   }
 }
