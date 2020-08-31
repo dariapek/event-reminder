@@ -1,0 +1,20 @@
+.event {
+  height: 100%;
+
+  &__list {
+    padding-top: 0;
+  }
+
+  &__wrap {
+    width: 100%;
+    display: flex;
+  }
+
+  &__title {
+    min-width: 30%;
+  }
+
+  &__key {
+    width: 80%;
+  }
+}
