@@ -4,12 +4,16 @@
 
   &__col {
     width: 50%;
+
+    &--left {
+      margin-right: 16px;
+    }
   }
 
   &__add-button {
     position: absolute;
-    top: -44px;
-    left: -44px;
+    top: -52px;
+    left: -52px;
     z-index: 1;
   }
 }
