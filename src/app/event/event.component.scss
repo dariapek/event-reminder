@@ -1,5 +1,6 @@
 .event {
   height: 100%;
+  position: relative;
 
   &__list {
     padding-top: 0;
@@ -16,5 +17,18 @@
 
   &__key {
     width: 80%;
+  }
+
+  &__close {
+    position: absolute;
+    right: 8px;
+    top: 8px;
+    background-color: transparent;
+    border: none;
+    width: 27px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
   }
 }
