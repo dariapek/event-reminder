@@ -41,7 +41,9 @@ import {MatTableModule} from '@angular/material/table';
 import {MatSortModule} from '@angular/material/sort';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
-import {MatNativeDateModule} from '@angular/material/core'
+import {MatNativeDateModule} from '@angular/material/core';
+import { EventComponent } from './event/event.component';
+import { EventListComponent } from './event-list/event-list.component';
 
 const materialModules = [
   BrowserAnimationsModule,
@@ -87,14 +89,16 @@ const materialModules = [
     LayoutComponent,
     RegistrationComponent,
     EditComponent,
-    CalendarComponent
+    CalendarComponent,
+    EventComponent,
+    EventListComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     BrowserAnimationsModule,
     FormsModule,
-    materialModules,
+    materialModules
   ],
   providers: [],
   bootstrap: [AppComponent]
