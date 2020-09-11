@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {MatTableDataSource} from '@angular/material/table';
+import {Subscription} from 'rxjs';
+import {EventService} from '../event.service';
+import {EventItem} from '../interface';
 
 @Component({
   selector: 'app-event',
@@ -7,8 +9,14 @@ import {MatTableDataSource} from '@angular/material/table';
   styleUrls: ['./event.component.scss']
 })
 export class EventComponent implements OnInit {
+  public eventSubscription: Subscription;
+  public eventDate: EventItem;
 
-  constructor() { }
+  constructor(private eventService: EventService) {
+    this.eventSubscription = eventService.event$.subscribe(event => {
+      this.eventDate = event;
+    });
+  }
 
   ngOnInit(): void {
   }

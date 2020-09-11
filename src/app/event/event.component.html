@@ -1,4 +1,6 @@
-  <mat-card class="event">
+  <mat-card
+    *ngIf="eventDate"
+    class="event">
     <button
       type="button"
       class="event__close">
@@ -8,31 +10,31 @@
       <mat-list-item>
         <div class="event__wrap">
           <div class="event__title">Person:</div>
-          <div class="event__value">Daria</div>
+          <div class="event__value">{{eventDate.person}}</div>
         </div>
       </mat-list-item>
       <mat-list-item>
         <div class="event__wrap">
           <div class="event__title">Date:</div>
-          <div class="event__value">Aug 31, 2020</div>
+          <div class="event__value">{{eventDate.date}}</div>
         </div>
       </mat-list-item>
       <mat-list-item>
         <div class="event__wrap">
           <div class="event__title">Text:</div>
-          <div class="event__value">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Distinctio, quasi?</div>
+          <div class="event__value">{{eventDate.text}}</div>
         </div>
       </mat-list-item>
       <mat-list-item>
         <div class="event__wrap">
           <div class="event__title">Days before:</div>
-          <div class="event__value">5</div>
+          <div class="event__value">{{eventDate.daysBefore}}</div>
         </div>
       </mat-list-item>
       <mat-list-item>
         <div class="event__wrap">
           <div class="event__title">Is active:</div>
-          <div class="event__value">yes</div>
+          <div class="event__value">{{eventDate.isActive}}</div>
         </div>
       </mat-list-item>
     </mat-list>
