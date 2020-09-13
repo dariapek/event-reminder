@@ -1,9 +1,20 @@
+<div *ngIf="isShow">
+  <mat-card *ngIf="isEmptyMessage">
+    <button
+      type="button"
+      class="event__close"
+      (click)="close()">
+      <mat-icon>close</mat-icon>
+    </button>
+    <mat-card-title>Not found events on this day</mat-card-title>
+  </mat-card>
   <mat-card
-    *ngIf="eventDate"
+    *ngIf="eventDate && !isEmptyMessage"
     class="event">
     <button
       type="button"
-      class="event__close">
+      class="event__close"
+      (click)="close()">
       <mat-icon>close</mat-icon>
     </button>
     <mat-list class="event__list">
@@ -38,4 +49,5 @@
         </div>
       </mat-list-item>
     </mat-list>
-</mat-card>
+  </mat-card>
+</div>
