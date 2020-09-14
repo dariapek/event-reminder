@@ -20,7 +20,7 @@ export class EventService {
     {
       date: '2001-07-30 00:00:00',
       person: 'Митя',
-      text: 'День рождение Мити',
+      text: 'День рождения Мити',
       type: 'birthday',
       daysBefore: 1,
       isActive: true,
@@ -28,7 +28,7 @@ export class EventService {
     {
       date: '2005-12-01 00:00:00',
       person: 'Саша',
-      text: 'День рождение Саши',
+      text: 'День рождения Саши',
       type: 'birthday',
       daysBefore: 1,
       isActive: true,
