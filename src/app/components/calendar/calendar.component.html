@@ -33,7 +33,8 @@
       <button
         class="calendar__day"
         *ngFor="let date of daysOfMonth"
-        [ngClass]="(currentDay === date.day) && (currentMonth === month) ? 'calendar__day--today' : ''"
+        [ngClass]="{'calendar__day--today': (currentDay === date.day) && (currentMonth === month),
+        'calendar__day--event': date.hasEvent}"
         (click)="onDateClick(date.fullDate)"
       >{{date.day}}</button>
       <button

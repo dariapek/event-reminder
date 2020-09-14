@@ -109,6 +109,22 @@
     }
   }
 
+  &__day--event {
+    position: relative;
+
+    &:after {
+      content: "";
+      position: absolute;
+      top: 5%;
+      left: 5%;
+      width: 90%;
+      height: 90%;
+      border-radius: 50%;
+      background-color: rgba(0,0,0, 0.05);
+
+    }
+  }
+
   &__day--prev,
   &__day--next{
     opacity: 0.4;

@@ -19,11 +19,13 @@ export class CalendarComponent implements OnInit {
   public daysOfMonth: any = [];
   public daysOfPrevMonth: any = [];
   public daysOfNextMonth: any = [];
+  public eventDates = [];
 
   constructor(private eventService: EventService) {
   }
 
   ngOnInit(): void {
+    this.eventDates = this.eventService.getAll();
     this.renderCalendar();
   }
 
@@ -62,9 +64,12 @@ export class CalendarComponent implements OnInit {
     this.daysOfPrevMonth.reverse();
 
     _.times(lastDay, (day) => {
-      this.daysOfMonth.push({day: day + 1, fullDate: new Date(this.date.getFullYear(), this.date.getMonth(), day + 1)});
+      const fullDate = new Date(this.date.getFullYear(), this.date.getMonth(), day + 1);
+      this.daysOfMonth.push({
+        day: day + 1,
+        fullDate,
+        hasEvent: this.eventDates.includes(fullDate.toDateString())});
     });
-
 
     // TODO: поправить вывод, при некоторых значениях встречаются баги
     _.times(DAYS_OF_WEEK - lastDayIndex, (day) => {
@@ -83,6 +88,10 @@ export class CalendarComponent implements OnInit {
   }
 
   onDateClick(date) {
+    if (!date) {
+      return;
+    }
+
     const dateWithoutTime = new Date(date.getFullYear(), date.getMonth(), date.getDate());
     this.eventService.clickOnDate(dateWithoutTime);
   }
