@@ -25,7 +25,7 @@ export class CalendarComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.eventDates = this.eventService.getAll();
+    this.eventDates = this.eventService.getEventDates();
     this.renderCalendar();
   }
 

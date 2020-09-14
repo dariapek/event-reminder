@@ -58,8 +58,10 @@ export class EventService {
   create() {
   }
 
-  getAll() {
-    return this.events;
+  getEventDates() {
+     return _.map(this.events, (eventItem) => {
+      return new Date(eventItem.date).toDateString();
+    });
   }
 
   remove() {
