@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {Subscription} from 'rxjs';
 import {EventService} from '../event.service';
 import {EventItem} from '../interface';
+import {EventManagerService} from '../event-manager.service';
 
 @Component({
   selector: 'app-event',
@@ -14,7 +15,10 @@ export class EventComponent implements OnInit {
   public isEmptyMessage = false;
   public isShow = false;
 
-  constructor(private eventService: EventService) {
+  constructor(
+    private eventService: EventService,
+    private eventManagerService: EventManagerService
+  ) {
    this.openEvent();
   }
 
@@ -22,13 +26,13 @@ export class EventComponent implements OnInit {
   }
 
   openEvent() {
-    this.eventSubscription = this.eventService.event$.subscribe(event => {
+    this.eventSubscription = this.eventManagerService.event$.subscribe(event => {
       this.isShow = true;
       if (!event) {
         this.isEmptyMessage = true;
       } else {
         this.isEmptyMessage = false;
-        return this.eventDate = event;
+        return this.eventDate = {...event, isActive: event.isActive ? 'Yes' : 'No'};
       }
     });
   }

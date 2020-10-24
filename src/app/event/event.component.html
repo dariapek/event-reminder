@@ -19,7 +19,9 @@
     </button>
     <mat-list class="event__list">
       <mat-list-item>
-        <div class="event__wrap">
+        <div
+          *ngIf="eventDate.person"
+          class="event__wrap">
           <div class="event__title">Person:</div>
           <div class="event__value">{{eventDate.person}}</div>
         </div>
@@ -27,11 +29,14 @@
       <mat-list-item>
         <div class="event__wrap">
           <div class="event__title">Date:</div>
-          <div class="event__value">{{eventDate.date}}</div>
+          <div class="event__value">{{eventDate.date | date}}</div>
         </div>
       </mat-list-item>
       <mat-list-item>
-        <div class="event__wrap">
+        <div
+          *ngIf="eventDate.text"
+          class="event__wrap"
+        >
           <div class="event__title">Text:</div>
           <div class="event__value">{{eventDate.text}}</div>
         </div>
