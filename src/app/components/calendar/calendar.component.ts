@@ -1,6 +1,7 @@
 import {Component, OnInit} from '@angular/core';
 import * as _ from 'lodash';
 import {EventService} from '../../event.service';
+import {EventManagerService} from '../../event-manager.service';
 
 @Component({
   selector: 'app-calendar',
@@ -21,7 +22,9 @@ export class CalendarComponent implements OnInit {
   public daysOfNextMonth: any = [];
   public eventDates = [];
 
-  constructor(private eventService: EventService) {
+  constructor(
+    private eventService: EventService,
+    private eventManagerService: EventManagerService) {
   }
 
   ngOnInit(): void {
@@ -88,11 +91,6 @@ export class CalendarComponent implements OnInit {
   }
 
   onDateClick(date) {
-    if (!date) {
-      return;
-    }
-
-    const dateWithoutTime = new Date(date.getFullYear(), date.getMonth(), date.getDate());
-    this.eventService.clickOnDate(dateWithoutTime);
+    this.eventManagerService.onDateClick(date);
   }
 }
