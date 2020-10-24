@@ -9,16 +9,16 @@ import * as _ from 'lodash';
 
 
 export class EventService {
-  private events: EventItem[] = [
+  public events: EventItem[] = [
     {
-      date: '2020-09-11 00:00:00',
+      date: '2020-09-11',
       person: 'Axmed',
       type: 'birthday',
       daysBefore: 1,
       isActive: true,
     },
     {
-      date: '2001-07-30 00:00:00',
+      date: '2001-07-30',
       person: 'Митя',
       text: 'День рождения Мити',
       type: 'birthday',
@@ -26,7 +26,7 @@ export class EventService {
       isActive: true,
     },
     {
-      date: '2005-12-01 00:00:00',
+      date: '2005-12-01',
       person: 'Саша',
       text: 'День рождения Саши',
       type: 'birthday',
@@ -34,7 +34,7 @@ export class EventService {
       isActive: true,
     },
     {
-      date: '2020-09-03 00:00:00',
+      date: '2020-09-03',
       person: 'Лена',
       text: 'Встретить Лену на вокзале',
       type: 'event',
@@ -42,15 +42,27 @@ export class EventService {
       isActive: true,
     },
     {
-      date: '2020-09-03 00:00:00',
+      date: '2020-09-03',
       text: 'Купить молоко',
       type: 'reminder',
       daysBefore: 0,
       isActive: true,
     },
+    {
+      date: '2020-10-07',
+      text: 'Купить молоко',
+      type: 'reminder',
+      daysBefore: 0,
+      isActive: true,
+    },
+    {
+      date: '2020-10-15',
+      text: 'Купить кока-колу',
+      type: 'reminder',
+      daysBefore: 0,
+      isActive: true,
+    },
   ];
-
-  public event$ = new Subject<EventItem>();
 
   constructor() {
   }
@@ -64,17 +76,14 @@ export class EventService {
     });
   }
 
+  getAllEvents() {
+    return this.events;
+  }
+
+
   remove() {
   }
 
   update() {
-  }
-
-  clickOnDate(date) {
-    const targetDate = _.find(this.events, (event) => {
-      return new Date(event.date).toDateString() === date.toDateString();
-    });
-
-    this.event$.next(targetDate);
   }
 }
