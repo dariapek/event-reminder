@@ -4,5 +4,5 @@ export interface EventItem {
   text?: string;
   type: 'birthday' | 'event' | 'reminder';
   daysBefore: number;
-  isActive: boolean;
+  isActive: boolean | string;
 }
