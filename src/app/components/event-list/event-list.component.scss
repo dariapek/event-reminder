@@ -25,10 +25,37 @@
 
   &__scroll {
     overflow-y: auto;
+    max-height: calc(100% - 72px);
   }
 
   &__date,
   &__text {
     display: block;
   }
+
+  &__form {
+    padding: 16px 16px 0;
+  }
+
+  &__input-container {
+    width: 100%;
+  }
+}
+
+
+::-webkit-scrollbar {
+  width: 5px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 0, 0, 0.05);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 5px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #555;
 }

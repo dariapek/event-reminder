@@ -70,7 +70,7 @@ export class EventService {
     },
     {
       date: '2020-11-23',
-      text: 'День рождение Тани',
+      text: 'День рождения Тани',
       type: 'birthday',
       daysBefore: 0,
       isActive: true,
