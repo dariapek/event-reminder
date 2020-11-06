@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {EventItem} from './interface';
-import {Subject} from 'rxjs';
 import * as _ from 'lodash';
 
 @Injectable({
@@ -59,6 +58,20 @@ export class EventService {
       date: '2020-10-15',
       text: 'Купить кока-колу',
       type: 'reminder',
+      daysBefore: 0,
+      isActive: true,
+    },
+    {
+      date: '2020-11-06',
+      text: 'Митинг после демо',
+      type: 'reminder',
+      daysBefore: 0,
+      isActive: true,
+    },
+    {
+      date: '2020-11-23',
+      text: 'День рождение Тани',
+      type: 'birthday',
       daysBefore: 0,
       isActive: true,
     },

@@ -43,7 +43,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
 import {MatButtonModule} from '@angular/material/button';
 import {MatNativeDateModule} from '@angular/material/core';
 import { EventComponent } from './event/event.component';
-import { EventListComponent } from './event-list/event-list.component';
+import { EventListComponent } from './components/event-list/event-list.component';
 
 const materialModules = [
   BrowserAnimationsModule,

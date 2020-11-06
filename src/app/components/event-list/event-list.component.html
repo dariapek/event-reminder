@@ -1,0 +1,22 @@
+ <mat-card class="event-list">
+   <form class="example-form">
+     <mat-form-field class="example-full-width">
+       <mat-label>Change to autocomplete</mat-label>
+       <input matInput>
+     </mat-form-field>
+   </form>
+   <div class="event-list__scroll">
+     <mat-list role="list">
+       <mat-list-item
+         class="event-list__item"
+         role="listitem"
+         *ngFor="let event of events">
+         <div class="event-list__items-wrap">
+           <div class="event-list__date">{{ event.date }}</div>
+           <div class="event-list__text">{{ event.text }}</div>
+         </div>
+       </mat-list-item>
+     </mat-list>
+   </div>
+ </mat-card>
+
